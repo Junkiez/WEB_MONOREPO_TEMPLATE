@@ -1,0 +1,16 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "Frontend & backend monorepo setup",
+  "scripts": {
+    "dev": "pnpm --recursive run dev",
+    "build": "pnpm --recursive run build",
+    "start": "pnpm --recursive run start"
+  },
+  "pnpm": {
+    "node-linker": "hoisted",
+    "shamefully-hoist": true
+  },
+  "author": "Junkiez",
+  "license": "ISC"
+}
