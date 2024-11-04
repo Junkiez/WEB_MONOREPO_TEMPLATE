@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "name": "backend",
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",

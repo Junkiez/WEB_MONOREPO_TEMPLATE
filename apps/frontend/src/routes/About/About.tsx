@@ -1,7 +1,7 @@
 import useStoreSync from "../../state/counter";
 
 const About = () => {
-    const {isPending, storage, mutations} = useStoreSync();
+    const {storage, mutations} = useStoreSync();
     return (
         <>
             <p>{storage.counterOne}</p>

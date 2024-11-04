@@ -6,22 +6,28 @@ import {mutations} from "./mutation";
 import {ICounter} from "models";
 import {useStore} from "@tanstack/react-store";
 
-const useStoreSync = () => {
-    const {isPending, error, data, refetch} = useQuery({
+function useStoreSync(): { isPending: boolean, storage: ICounter, mutations: typeof mutations } {
+    const {isPending, error, data} = useQuery({
         queryKey: [URL],
         queryFn: () => fetcher.get<ICounter>(URL).then((res) => res.data),
+        staleTime: 10000,
+        refetchInterval: 5000,
+        refetchOnWindowFocus: true,
+        refetchOnReconnect: true,
     })
 
     const storage = useStore(store, (state) => state)
 
-    const mut = mutations(refetch);
+    useEffect(() => {
+        if (data && !error) mutations.set(data)
+        else console.log(error)
+    }, [data, error]);
 
     useEffect(() => {
-        if (data && !error) mut.set(data)
-        else console.log(error)
-    }, [data, error, mut]);
+        sessionStorage.setItem('Counter', JSON.stringify(storage));
+    }, [storage]);
 
-    return {isPending, storage, mutations: {...mut}}
-};
+    return {isPending, storage, mutations}
+}
 
-export default useStoreSync
+export default useStoreSync;

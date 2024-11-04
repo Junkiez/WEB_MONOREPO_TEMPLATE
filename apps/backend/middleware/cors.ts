@@ -1,4 +1,5 @@
 export default defineEventHandler((event) => {
+    if(useRuntimeConfig(event).production) return;
     const origin = event.req.headers.origin;
     if (origin) {
         event.res.setHeader('Access-Control-Allow-Origin', origin);

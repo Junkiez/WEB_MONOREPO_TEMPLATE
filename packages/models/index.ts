@@ -1,3 +1,4 @@
 import {ICounter} from "./ICounter"
 
-export {ICounter}
+export type {ICounter}
+

@@ -5,7 +5,7 @@ import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 // https://vite.dev/config/
 export default defineConfig({
   build: {
-    outDir: '../../build/web'
+    outDir: '../backend/public'
   },
   plugins: [
     TanStackRouterVite(),

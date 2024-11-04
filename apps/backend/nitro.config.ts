@@ -1,6 +1,11 @@
-//https://nitro.unjs.io/config
 export default defineNitroConfig({
-  srcDir: "server",
-  compatibilityDate: "2024-11-02",
-  corsEnabled: "*",
+    // fuck U srcDir: "server",
+    runtimeConfig: {
+        production: false,
+    },
+    output: {
+        //dir: '../../build',
+    },
+    serveStatic: true,
+    compatibilityDate: '2024-11-03',
 });

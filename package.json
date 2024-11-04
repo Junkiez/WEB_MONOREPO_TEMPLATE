@@ -4,8 +4,7 @@
   "description": "Frontend & backend monorepo setup",
   "scripts": {
     "dev": "pnpm --recursive run dev",
-    "build": "pnpm --recursive run build",
-    "start": "pnpm --recursive run start"
+    "build": "pnpm run --filter frontend build && pnpm run --filter backend build"
   },
   "pnpm": {
     "node-linker": "hoisted",
